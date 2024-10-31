@@ -19,7 +19,7 @@ This repository adapts the c++ Slamtec SDK module and converts it into a python 
 
 Download the precompiled `.so` module:
 - `rplidar.cpython-311-arm-linux-gnueabihf.so` for arm processors e.g. Raspberri Pi
-- 'rplidar.cpython-311-x86_64-linux-gnu.so` for x86 processors e.g. Intel, AMD
+- `rplidar.cpython-311-x86_64-linux-gnu.so` for x86 processors e.g. Intel, AMD
 
 and the file `lidar_test.py` to your working folder, and go to [Usage](#usage).
 
