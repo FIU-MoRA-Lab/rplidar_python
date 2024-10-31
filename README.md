@@ -22,7 +22,7 @@ Download the precompiled `.so` module:
 - `rplidar.cpython-311-x86_64-linux-gnu.so` for x86 processors e.g. Intel, AMD
 
 and the file `lidar_test.py` to your working folder, and go to [Usage](#usage).
-
+If you recieve compilation errors related to the library or its objects or methods or you want to compile yourself, proceed to the next section. 
 ## Compiling the Module
 
 1. Clone this repository
