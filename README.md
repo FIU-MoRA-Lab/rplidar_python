@@ -17,7 +17,11 @@ This repository adapts the c++ Slamtec SDK module and converts it into a python 
 - Pygame
 ## Easy Start
 
-Download the precompiled `.so` module and the file `lidar_test.py` to your working folder, and go to [Usage](#usage).
+Download the precompiled `.so` module:
+- `rplidar.cpython-311-arm-linux-gnueabihf.so` for arm processors e.g. Raspberri Pi
+- 'rplidar.cpython-311-x86_64-linux-gnu.so` for x86 processors e.g. Intel, AMD
+
+and the file `lidar_test.py` to your working folder, and go to [Usage](#usage).
 
 ## Compiling the Module
 
@@ -25,19 +29,24 @@ Download the precompiled `.so` module and the file `lidar_test.py` to your worki
 ```bash
 git clone --recurse-submodules https://github.com/FIU-MoRA-Lab/rplidar_python.git
 cd rplidar_python
-#    git submodule update --init --recursive
 
 ```
-
 2. Compile the Slamtec SDK by typing 
 ```bash
-make -C /rplidar_sdk
+make -C ./rplidar_sdk
 ``` 
 
 3. Compile the Python module by running
 ```bash
 cmake -S . -B build -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=../  && cmake --build build && rm -rf build
 ```
+4. Or the complete code:
+```bash
+git clone --recurse-submodules https://github.com/FIU-MoRA-Lab/rplidar_python.git
+cd rplidar_python
+cmake -S . -B build -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=../  && cmake --build build && rm -rf build
+```
+
 You should end up with a `.so` file whose name starts by `rplidar.cpython`.
 
 ## Class API
@@ -46,8 +55,8 @@ You should end up with a `.so` file whose name starts by `rplidar.cpython`.
 Basic wrapper managing communication with the RPLidar
 
 **Parameters:**
-- **port** (`str`): The serial port to which the RPLIDAR is connected (default: `/dev/ttyUSB0`).
-- **baudrate** (`int`): The baud rate for the serial communication (default: `1000000`).
+- **port** (str): The serial port to which the RPLIDAR is connected (default: `/dev/ttyUSB0`).
+- **baudrate** (int): The baud rate for the serial communication (default: `1000000`).
 
 
 ### Attributes
@@ -62,25 +71,25 @@ The class has no accesible attributes
 Get scan data from the Lidar
 
 **Returns:**
-- **measurements** (`list[float]`): A list of 360 float values (one per degree) representing distance measurements in meters
+- **measurements** (list[float]): A list of 360 float values (one per degree) representing distance measurements in meters
 
 ##### `initialize()`
 Initialize the Lidar.
 
 **Returns:** 
-- **is_initialized**`(`bool`): `True` if the Lidar is successfully initialized, `False` otherwise
+- **is_initialized**(bool): `True` if the Lidar is successfully initialized, `False` otherwise
 
 ##### `start_scan()`
 Start scanning with the Lidar
 
 **Returns:** 
-- (`None`): `None`
+- `None`
 
 ##### `stop_scan()`
 Stop scanning with the Lidar
 
 **Returns:**
--  (`None`): `None`
+- `None`
 
 ## Usage
 
