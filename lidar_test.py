@@ -1,31 +1,19 @@
 import rplidar
 from math import cos, sin, pi
 import pygame
-
+import pydoc
 # Create an instance of the LidarWrapper
 lidar_instance = rplidar.LidarWrapper("/dev/ttyUSB0", 1000000)
 
-# # Initialize the Lidar
-# if lidar_instance.initialize():
-#     print("Lidar initialized successfully!")
-
-# # Start scanning
-# lidar_instance.start_scan()
-
-# Retrieve scan data
-# while True:
-#     print(len(lidar_instance.get_scan_data()))
-
-
-
-
+# Print module documentation
+print(pydoc.render_doc(rplidar))
 
 pygame.init()
 lcd = pygame.display.set_mode((800,800))
 pygame.mouse.set_visible(False)
 lcd.fill((0,0,0))
 pygame.display.update()
-SCALE_FACTOR = 800/5
+SCALE_FACTOR = 800/10
 def process_data(data):
     global max_distance
     lcd.fill((0,0,0))
@@ -44,6 +32,5 @@ def process_data(data):
 
 while True:
     data = lidar_instance.get_scan_data()
-    print(data[0])
     process_data(data)
 

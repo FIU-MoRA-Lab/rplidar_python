@@ -1,6 +1,5 @@
 rplidar_sdk
 !/rplidar_sdk/include
 !/rplidar_sdk/output
-*.so
 .vs
 .vscode
