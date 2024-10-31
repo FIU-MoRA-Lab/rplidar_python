@@ -44,6 +44,7 @@ cmake -S . -B build -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=../  && cmake --build build
 ```bash
 git clone --recurse-submodules https://github.com/FIU-MoRA-Lab/rplidar_python.git
 cd rplidar_python
+make -C ./rplidar_sdk
 cmake -S . -B build -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=../  && cmake --build build && rm -rf build
 ```
 
